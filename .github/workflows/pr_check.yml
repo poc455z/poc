@@ -15,16 +15,15 @@ jobs:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
       - name: 'Dependency Review'
+        id: step1  # Add an ID to reference this step
         uses: actions/dependency-review-action@v3
         with:
           comment-summary-in-pr : true
-          
   
   job2:
     runs-on: ubuntu-latest
     needs: dependency-review
     if: always()
     steps:
-      - env:
-          OUTPUT1: ${{needs.dependency-review.outputs.output1}}
-        run: echo "$OUTPUT1"
+      - name: 'Print Log Output'
+        run: echo "${{needs.dependency-review.outputs.output1}}"
