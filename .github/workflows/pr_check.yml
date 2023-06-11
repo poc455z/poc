@@ -12,17 +12,17 @@ jobs:
     steps:
       - name: 'Checkout Repository'
         uses: actions/checkout@v3
+      - name: 'Run script'
+        run: script example_session
+        
       - name: 'Dependency Review'
         id: dependency-review
         uses: actions/dependency-review-action@v3
         with:
           comment-summary-in-pr: true
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: artifacts
-          path: artifacts
-          if-no-files-found: error
-          retention-days: 90
+      - name: test
+        run: |
+          exit
+          cat example_session
+        
 
