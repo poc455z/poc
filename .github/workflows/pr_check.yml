@@ -17,7 +17,6 @@ jobs:
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v3
         with:
-          fail-on-severity: moderate
           comment-summary-in-pr : true
           
           
