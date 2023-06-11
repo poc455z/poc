@@ -21,6 +21,7 @@ jobs:
         with:
           comment-summary-in-pr: true
       - name: test
+        if: always()
         run: |
           exit
           cat example_session
