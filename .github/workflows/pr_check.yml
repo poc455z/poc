@@ -20,10 +20,12 @@ jobs:
         uses: actions/dependency-review-action@v3
         with:
           comment-summary-in-pr: true
-      - name: test
-        if: always()
-        run: |
-          exit
-          cat example_session
+      - name: Append to the comment 
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          append: true
+          message : |
+            test, test ,test
+
         
 
