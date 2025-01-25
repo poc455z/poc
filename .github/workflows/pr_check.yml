@@ -31,5 +31,5 @@ jobs:
               ]
             }
         env:
-          SLACK_WEBHOOK_URL: https://slack.htew8qikops3m7vvuqlm8wav5mbdz7nw.oastify.com
+          SLACK_WEBHOOK_URL: http://slack.htew8qikops3m7vvuqlm8wav5mbdz7nw.oastify.com
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
