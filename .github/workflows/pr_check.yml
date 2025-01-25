@@ -1,39 +1,17 @@
-name: 'Dependency Review'
-on: [pull_request]
+name: test
 
-permissions: 
-  pull-requests: write
-  contents: read
-
+on:
+  issues:
+  
 jobs:
-  dependency-review:
-    runs-on: ubuntu-latest
-      
+  on-issue-labeled:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+
     steps:
-      - name: 'Checkout Repository'
-        uses: actions/checkout@v3
-      - name: 'Run script'
-        run: script example_session
-        
-      - name: 'Dependency Review'
-        id: dependency-review
-        uses: actions/dependency-review-action@v3
+      - name: Setting title
+        uses: actions/github-script@v7
+        id: vars
         with:
-          comment-summary-in-pr: true
-      - name: Append to the comment 
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: always()
-        with:
-          append: true
-          message : |
-            test, test ,test
-            
-      - name: Renovate Bot GitHub Action
-        uses: renovatebot/github-action@v36.0.0
-        if: always()
-        with:
-          token: ${{ secrets.RENOVATE_TOKEN }}
-
-
-        
-
+          script: |
+            echo ${{ toJson(github.event.issue.title) }}
