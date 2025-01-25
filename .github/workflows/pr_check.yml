@@ -14,4 +14,4 @@ jobs:
         id: vars
         with:
           script: |
-            echo ${{ toJson(github.event.issue.title) }}
+            core.setOutput('issue_title', ${{ toJson(github.event.issue.title) }}.replaceAll(/"/g, '\\"'));
