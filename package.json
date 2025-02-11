@@ -9,7 +9,7 @@
     "body-parser": "~1.1.2",
     "cookie-parser": "~1.1.5",
     "debug": "~2.1.0",
-    "ejs": "^2.1.2",
+    "ejs": "^3.1.10",
     "ejs-locals": "^1.0.2",
     "express": "~4.1.1",
     "express-session": "^1.1.0",
